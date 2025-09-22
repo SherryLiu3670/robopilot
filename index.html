@@ -57,7 +57,7 @@
 
 
 <section class="hero">
-  <div class="hero-body">
+  <div class="hero-body" style="padding-top: 1rem;">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
@@ -135,7 +135,7 @@
 </section>
 
 
-<section class="section">
+<section class="section" style="background-color: #f8f9fa; padding: 3rem 0;">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -146,16 +146,20 @@
             Despite rapid progress in autonomous robotics, executing complex or long-horizon tasks remains a fundamental challenge. Most current approaches follow an open-loop paradigm with limited reasoning and no feedback, resulting in poor robustness to environmental changes and severe error accumulation.
           </p>
           <p>
-            We present <span class="dnerf">RoboPilot</span>, a dual-thinking closed-loop framework for robotic manipulation that supports adaptive reasoning for complex tasks in real-world dynamic environments. RoboPilot leverages primitive actions for structured task planning and flexible action generation, while introducing feedback to enable replanning from dynamic changes and execution errors. Chain-of-Thought reasoning further enhances high-level task planning and guides low-level action generation. The system dynamically switches between fast and slow thinking to balance efficiency and accuracy.
+            We present RoboPilot, a dual-thinking closed-loop framework for robotic manipulation that supports adaptive reasoning for complex tasks in real-world dynamic environments. RoboPilot leverages primitive actions for structured task planning and flexible action generation, while introducing feedback to enable replanning from dynamic changes and execution errors. Chain-of-Thought reasoning further enhances high-level task planning and guides low-level action generation. The system dynamically switches between fast and slow thinking to balance efficiency and accuracy.
           </p>
           <p>
-            To systematically evaluate the robustness of RoboPilot in diverse robot manipulation scenarios, we introduce <span class="dnerf">RoboPilot-Bench</span>, a benchmark spanning 21 tasks across 10 categories, including infeasible-task recognition and failure recovery. Experiments show that RoboPilot outperforms state-of-the-art baselines by 25.9\% in task success rate, and the real-world deployment on an industrial robot further demonstrates its robustness in real-world settings.
+            To systematically evaluate the robustness of RoboPilot in diverse robot manipulation scenarios, we introduce RoboPilot-Bench, a benchmark spanning 21 tasks across 10 categories, including infeasible-task recognition and failure recovery. Experiments show that RoboPilot outperforms state-of-the-art baselines by 25.9\% in task success rate, and the real-world deployment on an industrial robot further demonstrates its robustness in real-world settings.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
+  </div>
+</section>
 
+<section class="section">
+  <div class="container is-max-desktop">
     <!-- Main Architecture. -->
     <div class="columns is-centered">
       <div class="column">
@@ -196,7 +200,7 @@
       </video>
     </div>
     <p class="has-text-justified" style="margin-top: 1rem;">
-      Including 13 tasks across 5 groups: Simple Manipulation, Spatial Allocation, Stable Stacking, Perceptual Matching and Spatial Reasoning.
+      13 tasks across 5 groups: Simple Manipulation, Spatial Allocation, Stable Stacking, Perceptual Matching and Spatial Reasoning.
     </p>
     
     <!-- Robustness Evaluation Suite -->
@@ -212,7 +216,7 @@
       </video>
     </div>
     <p class="has-text-justified" style="margin-top: 1rem;">
-        Including 8 tasks across 5 groups: Conditional Reasoning, Sequential Planning, Feasibility Recognition, Linguistic Robustness and Error Recovery.
+        8 tasks across 5 groups: Conditional Reasoning, Sequential Planning, Feasibility Recognition, Linguistic Robustness and Error Recovery.
     </p>
   </div>
 
@@ -237,10 +241,10 @@
         <h3 class="title is-4">Spatial Allocation</h3>
       </div>
     </div>
-    <div class="columns is-centered is-gapless">
+    <div class="columns is-centered">
 
       <!-- First Video. -->
-      <div class="column">
+      <div class="column" style="margin-right: 0.5rem;">
         <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/line.mp4"
@@ -252,7 +256,7 @@
       <!--/ First Video. -->
 
       <!-- Second Video. -->
-      <div class="column">
+      <div class="column" style="margin-left: 0.5rem;">
         <div class="content">
           <video id="matting-video" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/assign.mp4"
@@ -269,10 +273,10 @@
         <h3 class="title is-4">Error Recovery</h3>
       </div>
     </div>
-    <div class="columns is-centered is-gapless">
+    <div class="columns is-centered">
 
       <!-- First Video. -->
-      <div class="column">
+      <div class="column" style="margin-right: 0.5rem;">
         <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/error_line.mp4"
@@ -284,7 +288,7 @@
       <!--/ First Video. -->
 
       <!-- Second Video. -->
-      <div class="column">
+      <div class="column" style="margin-left: 0.5rem;">
         <div class="content">
           <video id="matting-video" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/error_assign.mp4"
@@ -319,7 +323,7 @@
         <div class="content has-text-justified">
         </div>
         <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop playsinline width="100%">
+          <video id="replay-video" autoplay controls muted loop playsinline width="75%">
             <source src="./static/videos/dynamic.mp4"
                     type="video/mp4">
           </video>

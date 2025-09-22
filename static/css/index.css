@@ -23,6 +23,11 @@ body {
   padding-bottom: 3rem;
 }
 
+.hero .hero-body {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
 .teaser {
   font-family: 'Google Sans', sans-serif;
 }
