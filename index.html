@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RoboPilot: Generalizable Dynamic Robotic Manipulation with Dual-thinking Modes">
+  <meta name="keywords" content="LLMs, Robot Manipulation, AI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboPilot</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/clipboard.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">RoboPilot: Generalizable Dynamic Robotic Manipulation with Dual-thinking Modes</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+                <a href="https://sherryliu3670.github.io/" target="_blank">Xinyi Liu</a><sup>1,2</sup>,</span>
+                <span class="author-block">
+                  <a href="https://www.linkedin.com/in/mohammadreza-fani-sani-28922b47/" target="_blank">Mohammadreza Fani Sani</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://zewei-zhou.github.io/" target="_blank">Zewei Zhou</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://www.linkedin.com/in/juliuswirbel/" target="_blank">Julius Wirbel</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://www.linkedin.com/in/bahramzarrin/" target="_blank">Bahram Zarrin</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://orbit.dtu.dk/en/persons/roberto-galeazzi" target="_blank">Roberto Galeazzi</a><sup>2</sup>
+                  </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Microsoft,</span>
+            <span class="author-block"><sup>2</sup>Technical University of Denmark,</span>
+            <span class="author-block"><sup>3</sup>University of California, Los Angeles</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay controls muted loop playsinline height="100%" preload="metadata">
+        <source src="./static/videos/RoboPilot.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Despite rapid progress in autonomous robotics, executing complex or long-horizon tasks remains a fundamental challenge. Most current approaches follow an open-loop paradigm with limited reasoning and no feedback, resulting in poor robustness to environmental changes and severe error accumulation.
+          </p>
+          <p>
+            We present <span class="dnerf">RoboPilot</span>, a dual-thinking closed-loop framework for robotic manipulation that supports adaptive reasoning for complex tasks in real-world dynamic environments. RoboPilot leverages primitive actions for structured task planning and flexible action generation, while introducing feedback to enable replanning from dynamic changes and execution errors. Chain-of-Thought reasoning further enhances high-level task planning and guides low-level action generation. The system dynamically switches between fast and slow thinking to balance efficiency and accuracy.
+          </p>
+          <p>
+            To systematically evaluate the robustness of RoboPilot in diverse robot manipulation scenarios, we introduce <span class="dnerf">RoboPilot-Bench</span>, a benchmark spanning 21 tasks across 10 categories, including infeasible-task recognition and failure recovery. Experiments show that RoboPilot outperforms state-of-the-art baselines by 25.9\% in task success rate, and the real-world deployment on an industrial robot further demonstrates its robustness in real-world settings.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Main Architecture. -->
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h2 class="title is-3">Framework</h2>
+          <img src="./static/images/robopilot.png" alt="RoboPilot Main Architecture" style="width: 100%;" loading="lazy"/>
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            RoboPilot: The ModeSelector processes language instruction and visual information to select fast- or slow-thinking mode. The action generation module then orchestrates action primitives to solve the task, guided by the Chain-of-Thought reasoning module (only in slow-thinking mode). The execution monitor validates generated actions and tracks environment changes, providing closed-loop feedback for replanning.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Main Architecture. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Benchmark</h2>
+      </div>
+    </div>
+    <p class="has-text-justified" style="margin-top: 1rem;">
+      To evaluate the performance of dynamic manipulation with a focus on robustness, we propose RoboPilot-Bench. This benchmark is composed of: (i) the Canonical Manipulation Suite, (ii) the Robustness Evaluation Suite, which is new, extended task suite with categories targeting robustness evaluation such as infeasible task recognition and error recovery tasks.
+    </p>
+
+    <!-- Canonical Manipulation Suite -->
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h3 class="title is-4">Canonical Manipulation Suite</h3>
+      </div>
+    </div>
+    <div class="content has-text-centered">
+      <video id="simulation1" autoplay controls muted loop playsinline width="100%">
+        <source src="./static/videos/simulation1.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+    <p class="has-text-justified" style="margin-top: 1rem;">
+      Including 13 tasks across 5 groups: Simple Manipulation, Spatial Allocation, Stable Stacking, Perceptual Matching and Spatial Reasoning.
+    </p>
+    
+    <!-- Robustness Evaluation Suite -->
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h3 class="title is-4">Robustness Evaluation Suite</h3>
+      </div>
+    </div>
+    <div class="content has-text-centered">
+      <video id="simulation2" autoplay controls muted loop playsinline width="100%">
+        <source src="./static/videos/simulation2.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+    <p class="has-text-justified" style="margin-top: 1rem;">
+        Including 8 tasks across 5 groups: Conditional Reasoning, Sequential Planning, Feasibility Recognition, Linguistic Robustness and Error Recovery.
+    </p>
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Result Section Title -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+        <img src="./static/images/case.png" alt="RoboPilot Main Architecture" style="width: 100%;" loading="lazy"/>
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            <strong>Qualitative Results:</strong> (a) Simple sequential reasoning task (Fast-Thinking Mode). (b) A spatial reasoning task (Slow-Thinking Mode). (c) An error recovery long-horizon task (Slow-Thinking Mode).
+          </p>
+      </div>
+    </div>
+
+    <!-- Spatial Allocation -->
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h3 class="title is-4">Spatial Allocation</h3>
+      </div>
+    </div>
+    <div class="columns is-centered is-gapless">
+
+      <!-- First Video. -->
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/line.mp4"
+                    type="video/mp4">
+          </video>
+
+        </div>
+      </div>
+      <!--/ First Video. -->
+
+      <!-- Second Video. -->
+      <div class="column">
+        <div class="content">
+          <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/assign.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Second Video. -->
+    </div>
+
+    <!-- Error Recovery -->
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h3 class="title is-4">Error Recovery</h3>
+      </div>
+    </div>
+    <div class="columns is-centered is-gapless">
+
+      <!-- First Video. -->
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/error_line.mp4"
+                    type="video/mp4">
+          </video>
+
+        </div>
+      </div>
+      <!--/ First Video. -->
+
+      <!-- Second Video. -->
+      <div class="column">
+        <div class="content">
+          <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/error_assign.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Second Video. -->
+    </div>
+
+    <!-- Spatial Reasoning & Perceptual Matching -->
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column">
+        <h3 class="title is-4">Spatial Reasoning & Perceptual Matching</h3>
+      </div>
+    </div>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted loop playsinline width="75%">
+            <source src="./static/videos/spatial_color.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Adaptibility to Dynamic Environment -->
+        <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+          <div class="column">
+            <h3 class="title is-4">Adaptibility to Dynamic Environment</h3>
+          </div>
+        </div>
+        <div class="content has-text-justified">
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/dynamic.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{xinyi2025robopilot,
+  author    = {Xinyi Liu, Mohammadreza Fani Sani, Zewei Zhou, Julius Wirbel, Bahram Zarrin, Roberto Galeazzi},
+  title     = {RoboPilot: Generalizable Dynamic Robotic Manipulation with Dual-thinking Modes},
+  journal   = {ICCV},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
